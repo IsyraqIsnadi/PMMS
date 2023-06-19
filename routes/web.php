@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\paymentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RosterController;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,16 @@ use App\Http\Controllers\RosterController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+// Report routes
+// Report routes
+Route::get('/reports', [ReportController::class, 'index'])->name('report.index');
+Route::get('/reports/create', [ReportController::class, 'create'])->name('report.create');
+Route::post('/reports', [ReportController::class, 'store'])->name('report.store');
+Route::get('/reports/{report}', [ReportController::class, 'show'])->name('report.show');
+Route::get('/reports/{report}/edit', [ReportController::class, 'edit'])->name('report.edit');
+Route::put('/reports/{report}', [ReportController::class, 'update'])->name('report.update');
+Route::delete('/reports/{report}', [ReportController::class, 'destroy'])->name('report.destroy');
 
 //Manage Roster
 
