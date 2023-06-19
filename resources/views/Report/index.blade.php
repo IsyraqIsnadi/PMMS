@@ -16,6 +16,151 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <style>
+        body {
+    font-family: 'figtree', sans-serif;
+    background-color: #F3F4F6;
+}
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #FFFFFF;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+
+        h1 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #4F46E5;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: #4F46E5;
+        }
+
+        .btn-secondary {
+            background-color: #4338CA;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .table th,
+        .table td {
+            padding: 10px;
+            border-bottom: 1px solid #D1D5DB;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #F3F4F6;
+            font-weight: bold;
+        }
+
+        .table tr:hover {
+            background-color: #F9FAFB;
+        }
+
+        .table td:last-child {
+            text-align: right;
+        }
+
+        .table select {
+            padding: 8px;
+            border: 1px solid #D1D5DB;
+            border-radius: 4px;
+        }
+
+        .table td div {
+            margin-top: 10px;
+        }
+
+        .table li {
+            margin-bottom: 8px;
+        }
+
+        /* Custom styles for a professional look */
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 40px 30px;
+        }
+
+        h1 {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .btn-primary:hover,
+        .btn-secondary:hover {
+            opacity: 0.8;
+        }
+
+        .table {
+            margin-top: 30px;
+        }
+
+        .table th,
+        .table td {
+            padding: 12px;
+        }
+
+        .table th {
+            font-weight: bold;
+            background-color: #F3F4F6;
+            color: #4F46E5;
+            text-transform: uppercase;
+        }
+
+        .table tr:hover {
+            background-color: #F9FAFB;
+        }
+
+        .table td:last-child {
+            text-align: center;
+        }
+
+        .table select {
+            padding: 10px;
+        }
+
+        .table td div {
+            margin-top: 12px;
+        }
+
+        .table li {
+            margin-bottom: 10px;
+        }
+
+    </style>
 </head>
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
@@ -41,6 +186,11 @@
                             <th>Status</th>
                             <th>File Name</th>
                             <th>Created Date</th>
+                            <th>Roster Name</th>
+                            <th>Start Time</th>
+                            <th>End Time</th>
+                            <th>Date</th>
+                            <th>Day</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -55,6 +205,11 @@
                                 <td>{{ $report->status }}</td>
                                 <td>{{ $report->file_name }}</td>
                                 <td>{{ $report->created_date }}</td>
+                                <td>{{ $report->roster->name }}</td>
+                                <td>{{ $report->roster->start_time }}</td>
+                                <td>{{ $report->roster->end_time }}</td>
+                                <td>{{ $report->roster->date }}</td>
+                                <td>{{ $report->roster->day }}</td>
                                 <td>
                                     <a href="{{ route('report.show', $report->report_id) }}" class="btn btn-primary">View</a>
                                     <a href="{{ route('report.edit', $report->report_id) }}" class="btn btn-secondary">Edit</a>

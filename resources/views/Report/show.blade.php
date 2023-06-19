@@ -16,6 +16,39 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <style>
+        body {
+            font-family: 'figtree', sans-serif;
+            background-color: #f7fafc;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
@@ -36,6 +69,16 @@
                 <li><strong>Status:</strong> {{ $report->status }}</li>
                 <li><strong>File Name:</strong> {{ $report->file_name }}</li>
                 <li><strong>Created Date:</strong> {{ $report->created_date }}</li>
+                <li>
+                    <strong>Roster:</strong>
+                    <ul>
+                        <li><strong>Name:</strong> {{ $report->roster->name }}</li>
+                        <li><strong>Start Time:</strong> {{ $report->roster->start_time }}</li>
+                        <li><strong>End Time:</strong> {{ $report->roster->end_time }}</li>
+                        <li><strong>Date:</strong> {{ $report->roster->date }}</li>
+                        <li><strong>Day:</strong> {{ $report->roster->day }}</li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

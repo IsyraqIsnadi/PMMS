@@ -26,4 +26,10 @@ class Report extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    // Define the relationship with the Roster model
+    public function roster()
+    {
+        return $this->belongsTo(Roster::class);
+    }
 }
