@@ -16,12 +16,11 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->foreignId('user_id');
-            $table->date('date')->nullable();
-            $table->time('time')->nullable();
+            $table->timestamps();
+            $table->string('item');
+            $table->float('total');
             $table->string('method');
             $table->string('status');
-            $table->float('total');
-            $table->timestamps();
             $table->softDeletes();
         });
     }

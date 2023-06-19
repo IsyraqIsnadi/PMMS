@@ -20,11 +20,10 @@ class PaymentFactory extends Factory
     {
         return [
             'user_id' => $this->faker->unique()->randomNumber(),
-            'date' => $this->faker->date(),
-            'time' => $this->faker->time(),
+            'item' => $this->faker->word(),
+            'total' => $this->faker->randomFloat(2, 10, 1000),
             'method' => $this->faker->word(),
             'status' => $this->faker->word(),
-            'total' => $this->faker->randomFloat(2, 10, 1000),
         ];
     }
 }

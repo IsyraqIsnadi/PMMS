@@ -19,6 +19,7 @@ class Payment extends Model
         'date',
         'method',
         'status',
+        'item',
         'total',
     ];
 
