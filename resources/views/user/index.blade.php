@@ -14,7 +14,7 @@
                     <table class="w-full text-sm text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
-                                <th class="px-6 py-3 text-center">matric_id/th>
+                                <th class="px-6 py-3 text-center">matric_id
                                 <th class="px-6 py-3 text-center">staff_id</th>
                                 <th class="px-6 py-3 text-center">name</th>
                                 <th class="px-6 py-3 text-center">dateEnter</th>

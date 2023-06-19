@@ -11,33 +11,33 @@ class PaymentPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
+    public function viewAny(User $user)
     {
-        //
+        return true;
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Payment $payment): bool
+    public function view(User $user, Payment $payment)
     {
-        //
+        return true;
     }
 
     /**
      * Determine whether the user can create models.
      */
-    public function create(User $user): bool
+    public function create(User $user)
     {
-        //
+        return true;
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Payment $payment): bool
+    public function update(User $user, Payment $payment)
     {
-        if (!$user->hasRole('cashier'))
+        if (!$user->hasRole('Cashier'))
             return $user->hasPermissionTo('update payment');
         return false;
     }
@@ -45,9 +45,9 @@ class PaymentPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Payment $payment): bool
+    public function delete(User $user, Payment $payment)
     {
-        if (!$user->hasRole('cashier'))
+        if (!$user->hasRole('Cashier'))
             return $user->hasPermissionTo('delete payment');
         return false;
     }
@@ -55,16 +55,16 @@ class PaymentPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Payment $payment): bool
+    public function restore(User $user, Payment $payment)
     {
-        //
+        return true;
     }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Payment $payment): bool
+    public function forceDelete(User $user, Payment $payment)
     {
-        //
+        return true;
     }
 }

@@ -12,7 +12,10 @@ class UserPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        if(!$user->hasRole('Cashier'))
+        return $user->hasPermissionTo(('list user'));
+
+        return false;
     }
 
     /**
@@ -20,7 +23,7 @@ class UserPolicy
      */
     public function view(User $user, User $model)
     {
-        //
+        return true;
     }
 
     /**
@@ -28,7 +31,10 @@ class UserPolicy
      */
     public function create(User $user)
     {
-        //
+        if(!$user->hasRole('Cashier'))
+        return $user->hasPermissionTo(('create user'));
+
+        return false;
     }
 
     /**
@@ -36,7 +42,10 @@ class UserPolicy
      */
     public function update(User $user, User $model)
     {
-        //
+        if(!$user->hasRole('Cashier'))
+        return $user->hasPermissionTo(('update user'));
+
+        return false;
     }
 
     /**
@@ -44,7 +53,10 @@ class UserPolicy
      */
     public function delete(User $user, User $model)
     {
-        //
+        if(!$user->hasRole('Cashier'))
+        return $user->hasPermissionTo(('delete user'));
+
+        return false;
     }
 
     /**
@@ -52,7 +64,7 @@ class UserPolicy
      */
     public function restore(User $user, User $model)
     {
-        //
+        return true;
     }
 
     /**
@@ -60,6 +72,6 @@ class UserPolicy
      */
     public function forceDelete(User $user, User $model)
     {
-        //
+        return true;
     }
 }
