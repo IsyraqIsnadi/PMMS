@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\paymentController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RosterController;
 
@@ -37,14 +38,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
-     
+
     Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
     Route::get('/payment/create', [PaymentController::class, 'create'])->name('payment.create');
     Route::post('/payment', [PaymentController::class, 'store'])->name('payment.store');
     Route::get('/payment/{payment}/edit', [PaymentController::class, 'edit'])->name('payment.edit');
     Route::put('/payment/{payment}', [PaymentController::class, 'update'])->name('payment.update');
     Route::delete('/payment/{payment}', [PaymentController::class, 'destroy'])->name('payment.destroy');
+
+    Route::get('/user', [UserController::class, 'index'])->name('user.index');
+    Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
+    Route::post('/user', [UserController::class, 'store'])->name('user.store');
+    Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
+    Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
+    Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 
 }); 
 require __DIR__ . '/auth.php';

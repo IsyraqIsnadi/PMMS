@@ -21,16 +21,18 @@ class Permissionseeder extends Seeder
 
         //create default permissions
         Permission::create(['name' => 'list user']);
-        Permission::create(['name' => 'view user profile']);
-        Permission::create(['name' => 'create user profile']);
-        Permission::create(['name' => 'update user profile']);
-        Permission::create(['name' => 'delete user profile']);
+        Permission::create(['name' => 'view user']);
+        
 
         Permission::create(['name' => 'list inventory']);
         Permission::create(['name' => 'view inventory']);
         Permission::create(['name' => 'create inventory']);
         Permission::create(['name' => 'update inventory']);
         Permission::create(['name' => 'delete inventory']);
+
+        Permission::create(['name' => 'list payment']);
+        Permission::create(['name' => 'view payment']);
+        Permission::create(['name' => 'create payment']);
 
         Permission::create(['name' => 'list roster']);
         Permission::create(['name' => 'view roster']);
@@ -42,9 +44,10 @@ class Permissionseeder extends Seeder
         $userRole = Role::create(['name' => 'Cashier']);
         $userRole->givePermissionTo($currentPermission);
 
-        Permission::create(['name' => 'list payment']);
-        Permission::create(['name' => 'view payment']);
-        Permission::create(['name' => 'create payment']);
+        Permission::create(['name' => 'create user']);
+        Permission::create(['name' => 'update user']);
+        Permission::create(['name' => 'delete user']);
+
         Permission::create(['name' => 'update payment']);
         Permission::create(['name' => 'delete payment']);
 

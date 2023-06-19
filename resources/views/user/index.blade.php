@@ -1,14 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Profile') }}
+            {{ __('User') }}
         </h2>
     </x-slot>
     <div>
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
             <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
                 <div class="flex justify-end mb-4">
-                    <a  class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">ADD PROFILE</a>
+                    <a href="{{ route('user.create') }}" class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">ADD STAFF</a>
                 </div>
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-gray-500 dark:text-gray-400">
@@ -23,18 +23,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($user as $user)
+                            @foreach ($users as $user)
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                <td class="px-6 py-4 text-center">{{ $loop->iteration }}</td>
                                 <td class="px-6 py-4 text-center">{{ $user->matric_id }}</td>
                                 <td class="px-6 py-4 text-center">{{ $user->staff_id }}</td>
                                 <td class="px-6 py-4 text-center">{{ $user->name }}</td>
                                 <td class="px-6 py-4 text-center">{{ $user->dateEnter }}</td>
                                 <td class="px-6 py-4 text-center">
-                                    <a href="{{ route('profile.edit', [$user->id]) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">EDIT</a>
+                                    <a href="{{ route('user.edit', [$user->id]) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">EDIT</a>
                                 </td>
                                 <td class="px-6 py-4 text-center">
-                                    <form method="POST" action="{{ route('profile.destroy', $user->id) }}">
+                                    <form method="POST" action="{{ route('user.destroy', $user->id) }}">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">DELETE</button>
