@@ -14,13 +14,12 @@
                     <table class="w-full text-sm text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
-                                <th class="px-6 py-3 text-center">Transaction ID</th>
+                                <th class="px-6 py-3 text-center">Payment ID</th>
                                 <th class="px-6 py-3 text-center">Date | Time</th>
                                 <th class="px-6 py-3 text-center">Method</th>
                                 <th class="px-6 py-3 text-center">Status</th>
                                 <th class="px-6 py-3 text-center">Total (RM)</th>
-                                <th class="px-6 py-3 text-center">Edit</th>
-                                <th class="px-6 py-3 text-center">Delete</th>
+                                <th class="px-6 py-3 text-center">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -32,14 +31,14 @@
                                 <td class="px-6 py-4 text-center">{{ $payment->status }}</td>
                                 <td class="px-6 py-4 text-center">{{ $payment->total }}</td>
                                 <td class="px-6 py-4 text-center">
-                                    <a href="{{ route('payment.edit', [$payment->id]) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">EDIT</a>
-                                </td>
-                                <td class="px-6 py-4 text-center">
-                                    <form method="POST" action="{{ route('payment.destroy', $payment->id) }}">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">DELETE</button>
-                                    </form>
+                                    <div class="flex justify-center items-center space-x-2">
+                                        <a href="{{ route('payment.edit', [$payment->id]) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">EDIT</a>
+                                        <form method="POST" action="{{ route('payment.destroy', $payment->id) }}">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">DELETE</button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach
@@ -50,4 +49,3 @@
         </div>
     </div>
 </x-app-layout>
-s
