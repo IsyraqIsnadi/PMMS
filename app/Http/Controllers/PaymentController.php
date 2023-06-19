@@ -32,11 +32,12 @@ class PaymentController extends Controller
     {
         $payment = Payment::create([
             'user_id' => Auth::user()->id,           
-            'method' => $request->method,
-            'date' => $request->created_at, // Assign created_at timestamp to date field
-            'time' => $request->created_at, // Assign editd_at timestamp to time field
-            'status' => $request->status,
+            // 'date' => $request->created_at, // Assign created_at timestamp to date field
+            // 'time' => $request->created_at, // Assign editd_at timestamp to time field
+            'item' => $request->item,
             'total' => $request->total,
+            'method' => $request->method,
+            'status' => $request->status,
         ]);
 
         return redirect(route('payment.index', $payment->id));

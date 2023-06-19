@@ -16,9 +16,10 @@
                             <tr>
                                 <th class="px-6 py-3 text-center">Payment ID</th>
                                 <th class="px-6 py-3 text-center">Date | Time</th>
+                                <th class="px-6 py-3 text-center">Item</th>
+                                <th class="px-6 py-3 text-center">Total (RM)</th>
                                 <th class="px-6 py-3 text-center">Method</th>
                                 <th class="px-6 py-3 text-center">Status</th>
-                                <th class="px-6 py-3 text-center">Total (RM)</th>
                                 <th class="px-6 py-3 text-center">Actions</th>
                             </tr>
                         </thead>
@@ -27,9 +28,11 @@
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <td class="px-6 py-4 text-center">{{ $loop->iteration }}</td>
                                 <td class="px-6 py-4 text-center">{{ $payment->created_at }}</td>
+                                <td class="px-6 py-4 text-center">{{ $payment->item }}</td>
+                                <td class="px-6 py-4 text-center">{{ $payment->total }}</td>
                                 <td class="px-6 py-4 text-center">{{ $payment->method }}</td>
                                 <td class="px-6 py-4 text-center">{{ $payment->status }}</td>
-                                <td class="px-6 py-4 text-center">{{ $payment->total }}</td>
+                                
                                 <td class="px-6 py-4 text-center">
                                     <div class="flex justify-center items-center space-x-2">
                                         <a href="{{ route('payment.edit', [$payment->id]) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">EDIT</a>

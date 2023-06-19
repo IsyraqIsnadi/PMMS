@@ -10,6 +10,18 @@
                     @csrf
 
                     <div>
+                        <label for="item" class="block text-sm font-medium text-gray-700">Item</label>
+                        <input id="item" name="item" type="text" class="mt-1 block w-full px-4 py-2 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required autofocus autocomplete="off" placeholder="Enter item name">
+                        <x-input-error class="mt-2" :messages="$errors->get('item')" />
+                    </div>
+
+                    <div>
+                        <label for="total" class="block text-sm font-medium text-gray-700">Total (RM)</label>
+                        <input id="total" name="total" type="text" class="mt-1 block w-full px-4 py-2 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required autofocus autocomplete="off" placeholder="Enter total amount">
+                        <x-input-error class="mt-2" :messages="$errors->get('total')" />
+                    </div>
+
+                    <div>
                         <label for="method" class="block text-sm font-medium text-gray-700">Method</label>
                         <input id="method" name="method" type="text" class="mt-1 block w-full px-4 py-2 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required autofocus autocomplete="off" placeholder="Enter payment method">
                         <x-input-error class="mt-2" :messages="$errors->get('method')" />
@@ -19,12 +31,6 @@
                         <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
                         <input id="status" name="status" type="text" class="mt-1 block w-full px-4 py-2 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required autofocus autocomplete="off" placeholder="Enter payment status">
                         <x-input-error class="mt-2" :messages="$errors->get('status')" />
-                    </div>
-
-                    <div>
-                        <label for="total" class="block text-sm font-medium text-gray-700">Total (RM)</label>
-                        <input id="total" name="total" type="text" class="mt-1 block w-full px-4 py-2 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required autofocus autocomplete="off" placeholder="Enter total amount">
-                        <x-input-error class="mt-2" :messages="$errors->get('total')" />
                     </div>
 
                     <div class="flex items-center space-x-4">
