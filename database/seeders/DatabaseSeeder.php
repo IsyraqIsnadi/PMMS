@@ -12,16 +12,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        // Create SuperAdmin
+        $this->command->info("adding superadmin");
+        $user = \App\Models\User::factory()
+            ->count(1)
+            ->create([
+                'name' => 'super-Admin',
+                'email' => 'admin@admin.com',
+                'password' => \Hash::make('admin'),
+            ]);
 
-        \App\Models\User::factory()->create([
-            'name' => 'super-Admin',
-            'email' => 'admin@admin.com',
-            'password' => \Hash::make('admin'),
-        ]);
+        // Create petakom committe/cashier
+        $this->command->info("adding petakomcommitte");
+        $user = \App\Models\User::factory()
+            ->count(1)
+            ->create([
+                'email' => 'committe@committe.com',
+                'password' => \Hash::make('petakom'),
+            ]);
 
-            $this->call(UserSeeder::class);
-            $this->call(PaymentSeeder::class);
+        $this->call(UserSeeder::class);
+        $this->call(PaymentSeeder::class);
 
+        $this->command->info("adding role permission");
+        $this->call(Permissionseeder::class);
     }
 }

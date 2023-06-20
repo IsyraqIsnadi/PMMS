@@ -3,14 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 class ProfileController extends Controller
 {
+    public function index()
+    {
+        $users = User::all();
+        return view('profile.index', ['users' => $users]);
+    }
+
+
     /**
      * Display the user's profile form.
      */
@@ -57,4 +66,6 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+    //display list of user
+
 }
