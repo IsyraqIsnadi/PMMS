@@ -1,5 +1,7 @@
 <x-app-layout>
+    <!-- This component represents a layout for the entire app -->
     <x-slot name="header">
+        <!-- The header section of the layout -->
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Manage Payment') }}
         </h2>
@@ -8,12 +10,14 @@
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
             <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
                 <div class="flex justify-end mb-4">
+                    <!-- Link to the create payment page -->
                     <a href="{{ route('payment.create') }}" class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">ADD PAYMENT</a>
                 </div>
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
+                                <!-- Table headers -->
                                 <th class="px-6 py-3 text-center">Payment ID</th>
                                 <th class="px-6 py-3 text-center">Date | Time</th>
                                 <th class="px-6 py-3 text-center">Item</th>
@@ -26,6 +30,7 @@
                         <tbody>
                             @foreach ($payments as $payment)
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <!-- Table data for each payment -->
                                 <td class="px-6 py-4 text-center">{{ $loop->iteration }}</td>
                                 <td class="px-6 py-4 text-center">{{ $payment->created_at }}</td>
                                 <td class="px-6 py-4 text-center">{{ $payment->item }}</td>
@@ -34,6 +39,7 @@
                                 <td class="px-6 py-4 text-center">{{ $payment->status }}</td>
                                 
                                 <td class="px-6 py-4 text-center">
+                                    <!-- Actions for each payment: Edit and Delete -->
                                     <div class="flex justify-center items-center space-x-2">
                                         <a href="{{ route('payment.edit', [$payment->id]) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">EDIT</a>
                                         <form method="POST" action="{{ route('payment.destroy', $payment->id) }}">
