@@ -20,8 +20,13 @@
                         {{ __('Payment') }}
                     </x-nav-link>
 
+<<<<<<< HEAD
                     <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
                         {{ __('User') }}
+=======
+                    <x-nav-link :href="route('report.index')" :active="request()->routeIs('report.index')">
+                        {{ __('Report') }}
+>>>>>>> main
                     </x-nav-link>
                 </div>
             </div>
