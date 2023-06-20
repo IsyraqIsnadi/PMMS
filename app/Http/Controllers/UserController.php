@@ -32,12 +32,13 @@ class UserController extends Controller
     {
         $users = User::create([
             'name' => $request->name,
+            'email' => $request->email,
             'matric_id' => $request->matric_id,
             'gender' => $request->gender,
             'phone_number' => $request->phone_number,
             'staff_id' => $request->staff_id,
-            'year' => $request->name,
-            'program' => $request->name,
+            'year' => $request->year,
+            'program' => $request->program,
         ]);
 
         return redirect(route('user.index', $users->id));
@@ -55,21 +56,28 @@ class UserController extends Controller
     /**
      * edit the specified resource in storage.
      */
-    public function edit(User $users)
+    public function edit(User $user)
     {
-        return view('user.edit', ['user' => $users]);
+        return view('user.edit', ['user' => $user]);
 
     }
 
     /**
      * update the specified resource in storage.
      */
-    public function update(Request $request, User $users)
+    public function update(Request $request, User $user)
     {
-        $users->total = $request->total;
-        $users->update();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->matric_id = $request->matric_id;
+        $user->gender = $request->gender;
+        $user->phone_number = $request->phone_number;
+        $user->staff_id = $request->staff_id;
+        $user->year = $request->year;
+        $user->program = $request->program;
+        $user->update();
 
-        return redirect()->route('user.index', [$users->id]);
+        return redirect()->route('user.index', [$user->id]);
 
     }
 
