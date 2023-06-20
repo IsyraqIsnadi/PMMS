@@ -33,11 +33,11 @@ class UserController extends Controller
         $users = User::create([
             'name' => $request->name,
             'matric_id' => $request->matric_id,
-            'name' => $request->name,
-            'name' => $request->name,
-            'name' => $request->name,
-            'name' => $request->name,
-            'name' => $request->name,
+            'gender' => $request->gender,
+            'phone_number' => $request->phone_number,
+            'staff_id' => $request->staff_id,
+            'year' => $request->name,
+            'program' => $request->name,
         ]);
 
         return redirect(route('user.index', $users->id));
