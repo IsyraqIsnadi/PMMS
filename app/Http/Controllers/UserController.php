@@ -31,7 +31,13 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $users = User::create([
-            
+            'name' => $request->name,
+            'matric_id' => $request->matric_id,
+            'name' => $request->name,
+            'name' => $request->name,
+            'name' => $request->name,
+            'name' => $request->name,
+            'name' => $request->name,
         ]);
 
         return redirect(route('user.index', $users->id));
@@ -55,6 +61,9 @@ class UserController extends Controller
 
     }
 
+    /**
+     * update the specified resource in storage.
+     */
     public function update(Request $request, User $users)
     {
         $users->total = $request->total;
