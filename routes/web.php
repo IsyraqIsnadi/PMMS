@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\RosterController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
@@ -60,4 +61,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/payment/{payment}/edit', [PaymentController::class, 'edit'])->name('payment.edit');
     Route::put('/payment/{payment}', [PaymentController::class, 'update'])->name('payment.update');
     Route::delete('/payment/{payment}', [PaymentController::class, 'destroy'])->name('payment.destroy');
+    Route::get('/user', [UserController::class, 'index'])->name('user.index');
+    Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
+    Route::post('/user', [UserController::class, 'store'])->name('user.store');
+    Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
+    Route::put('/user/{user}', [UserController::class, 'update'])->name('user.update');
+    Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
+
 });

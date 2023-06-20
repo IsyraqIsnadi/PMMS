@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -20,7 +22,14 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password',
+        'matric_id',
+        'gender',
+        'phone_number',
+        'staff_id',
+        'dateEnter',
+        'year',
+        'program',
+        'is_active',
     ];
 
     /**
@@ -46,4 +55,39 @@ class User extends Authenticatable
     public function todos(){
         $this->hasOne(User::class);
     }
+
+    public function isSuperAdmin()
+    {
+        return $this->hasrole('super-admin');
+    }
+
+    public static function getRoleNamesArray(){
+        $roles = Role::pluck('name');
+        $rolenames=[];
+         foreach($roles as $index => $role){
+            $rolenames[$role] = ucwords($role);
+         }
+         return $rolenames;
+    }
+
+    public static function getRoleNames(){
+        $roles = Role::where('id','!=',0)->pluck('name');
+        $rolenames=[];
+        
+        foreach ($roles as $index=>$role){
+            $rolenames[$role] = ucwords($role);
+        }
+        return $rolenames;
+    }
+
+    public function getRoleNameAttribute(){
+        if($this->roles !=null && sizeof($this->roles)!=0){
+            return ucwords($this->roles[0]->name); 
+           }
+           else{
+            return ('No Role Assigned');
+           }
+    }
+
+
 }
