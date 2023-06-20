@@ -18,14 +18,14 @@ return new class extends Migration
             $table->string('matric_id')->Constrained()->cascadeOnDelete()->nullable();
             $table->string('gender')->nullable();
             $table->string('phone_number')->nullable();
-            $table->string('staff_id')->comment('for company purpose');
+            $table->string('staff_id')->comment('for company purpose')->nullable();
             $table->date('dateEnter')->nullable();
             $table->integer('year')->nullable();
             $table->string('program')->nullable();
             $table->boolean('is_active')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();;
             $table->rememberToken()->nullable();
             $table->timestamps();
         });
