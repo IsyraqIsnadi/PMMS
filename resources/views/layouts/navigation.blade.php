@@ -24,6 +24,10 @@
                         {{ __('User') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('roster.index')" :active="request()->routeIs('roster.index')">
+                        {{ __('Roster') }}
+                    </x-nav-link>
+
                     <x-nav-link :href="route('report.index')" :active="request()->routeIs('report.index')">
                         {{ __('Report') }}
                     </x-nav-link>

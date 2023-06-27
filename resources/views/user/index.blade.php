@@ -17,7 +17,6 @@
                                 <th class="px-6 py-3 text-center">matric_id
                                 <th class="px-6 py-3 text-center">staff_id</th>
                                 <th class="px-6 py-3 text-center">name</th>
-                                <th class="px-6 py-3 text-center">dateEnter</th>
                                 <th class="px-6 py-3 text-center">Edit</th>
                                 <th class="px-6 py-3 text-center">Delete</th>
                             </tr>
@@ -28,7 +27,6 @@
                                 <td class="px-6 py-4 text-center">{{ $user->matric_id }}</td>
                                 <td class="px-6 py-4 text-center">{{ $user->staff_id }}</td>
                                 <td class="px-6 py-4 text-center">{{ $user->name }}</td>
-                                <td class="px-6 py-4 text-center">{{ $user->dateEnter }}</td>
                                 <td class="px-6 py-4 text-center">
                                     <a href="{{ route('user.edit', [$user->id]) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">EDIT</a>
                                 </td>
